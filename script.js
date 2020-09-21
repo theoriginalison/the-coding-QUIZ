@@ -60,12 +60,15 @@ var q4String = JSON.stringify(questionFour);
 //questions as an array of strings
 var questionArray = [questionOne, questionTwo, questionThree, questionFour];
 var qArrayString = [q1String, q2String, q3String, q4String];
+//modify innterHTML after a loop using one of these?
 
 //add eventListeners
 choiceOneBtn.addEventListener("click", function () {});
 choiceTwoBtn.addEventListener("click", function () {});
 choiceThreeBtn.addEventListener("click", function () {});
 choiceFourBtn.addEventListener("click", function () {});
+
+//FIRST, need start page div underneath (Z index)?
 
 //create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
 //How to make elements of an object appear in the HTML?
