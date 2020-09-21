@@ -2,6 +2,7 @@ console.log("I'm working!"); //delete this when you're done!
 console.log('YOU"RE DOING AMAZING, SWEETIE! ;D');
 
 //create variables
+var question = document.querySelector("#question");
 var choiceOneBtn = document.querySelector("#choiceOne");
 var choiceTwoBtn = document.querySelector("#choiceTwo");
 var choiceThreeBtn = document.querySelector("#choiceThree");
@@ -70,7 +71,11 @@ choiceFourBtn.addEventListener("click", function () {});
 //How to make elements of an object appear in the HTML?
 for (let i = 0; i < questionArray.length; i++) {
   console.log(questionArray[i]);
+  //question.appendChild.(questionOne.questionText)//trying to append an object property to a place in the HTML
+  //should I use this? document.getElementById(id).innerHTML = new HTML
 }
+//this is how I'm trying to call the questionText property of the questionOne object into the h1 of #question
+question.innerHTML = questionOne.questionText;
 
 //commit to local storage the score on the High Scores page
 //differentiate between right and wrong answer -- can make the same button the right answer every time?
