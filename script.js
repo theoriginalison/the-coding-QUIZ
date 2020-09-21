@@ -75,7 +75,12 @@ for (let i = 0; i < questionArray.length; i++) {
   //should I use this? document.getElementById(id).innerHTML = new HTML
 }
 //this is how I'm trying to call the questionText property of the questionOne object into the h1 of #question
+//but I want this to be an array! Or to be able to cycle through this
 question.innerHTML = questionOne.questionText;
+choiceOneBtn.innerHTML = questionOne.choiceOne;
+choiceTwoBtn.innerHTML = questionOne.choiceTwo;
+choiceThreeBtn.innerHTML = questionOne.choiceThree;
+choiceFourBtn.innerHTML = questionOne.choiceFour;
 
 //commit to local storage the score on the High Scores page
 //differentiate between right and wrong answer -- can make the same button the right answer every time?
