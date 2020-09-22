@@ -88,6 +88,9 @@ choice.forEach((element) => {
     var userChoice = event.target.textContent;
     console.log(userChoice);
     console.log(event.target);
+    //if user choice matches the correct answer
+    if (userChoice === correct) {
+    }
   });
 });
 
@@ -117,6 +120,7 @@ function setTime() {
     secondsLeft--;
     timer.textContent = "You have " + secondsLeft + " seconds remaining.";
 
+    //need to be both zero seconds OR last question answered
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       console.log("You did the timer!");
