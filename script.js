@@ -89,10 +89,29 @@ choice.forEach((element) => {
     console.log(userChoice);
     console.log(event.target);
     //if user choice matches the correct answer
-    if (userChoice === correct) {
-    }
+    // if ((_.isEqual(userChoice, target.correct)) {
+
+    // // function isAnswerCorrect () {
+    //   //userChoice === target.correc
+    //   //OR
+    //   //JSON.stringify(userChoice) === JSON.stringify(correct);
+    //   nextQuestion()
+    // //need the else statement-- alerts both "wrong" and "right"}
+    // }
   });
 });
+
+//AskBCS suggested this: since "using data attr is more reliable than using target, which just reads the text content from the HTML page itself"
+// choice.forEach((element) => {
+//   element.addEventListener("click", function (event) {
+//     var userChoice = this.dataset.choice
+//     console.log(userChoice);
+//     console.log(event.target);
+//     //if user choice matches the correct answer
+//     if (userChoice === correct) {
+//     }
+//   });
+//  });
 
 //create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
 //How to make elements of an object appear in the HTML?
