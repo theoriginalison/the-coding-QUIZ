@@ -28,8 +28,6 @@ var questionOne = {
   correct: "3. alerts",
 };
 
-// how to call objecs: console.log(questionOne.questionText);
-
 var questionTwo = {
   questionText:
     "The condition in an if / else statement is enclosed within ______.",
@@ -93,14 +91,10 @@ choice.forEach((element) => {
   });
 });
 
-//FIRST, need start page div underneath (Z index)?
-
 //create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
 //How to make elements of an object appear in the HTML?
-// // for (let i = 0; i < questionArray.length; i++) {
-// //   console.log(questionArray[i]);
-//   //question.appendChild.(questionOne.questionText)//trying to append an object property to a place in the HTML
-//   //should I use this? document.getElementById(id).innerHTML = new HTML
+//for (let i = 0; i < questionArray.length; i++) {
+//   console.log(questionArray[i]);
 // }
 //this is how I'm trying to call the questionText property of the questionOne object into the h1 of #question
 //but I want this to be an array! Or to be able to cycle through this
