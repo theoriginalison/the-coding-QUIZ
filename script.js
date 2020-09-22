@@ -3,10 +3,16 @@ console.log('YOU"RE DOING AMAZING, SWEETIE! ;D');
 
 //create variables
 var question = document.querySelector("#question");
+var choice = document.querySelectorAll(".choices");
 var choiceOneBtn = document.querySelector("#choiceOne");
 var choiceTwoBtn = document.querySelector("#choiceTwo");
 var choiceThreeBtn = document.querySelector("#choiceThree");
 var choiceFourBtn = document.querySelector("#choiceFour");
+
+var startButton = document.querySelector("#start");
+var startContainer = document.querySelector("#startContainer");
+var questionContainer = document.querySelector("#questionContainer");
+var endContainer = document.querySelector("#endContainer");
 
 //variables for the timer
 var timer = document.querySelector("#timer");
@@ -19,6 +25,7 @@ var questionOne = {
   choiceTwo: "2. booleans",
   choiceThree: "3. alerts",
   choiceFour: "4. numbers",
+  correct: "3. alerts",
 };
 
 // how to call objecs: console.log(questionOne.questionText);
@@ -30,6 +37,7 @@ var questionTwo = {
   choiceTwo: "2. curly braces",
   choiceThree: "3. parentheses",
   choiceFour: "4. square brackets",
+  correct: "3. parentheses",
 };
 
 var questionThree = {
@@ -38,6 +46,7 @@ var questionThree = {
   choiceTwo: "2. other arrays",
   choiceThree: "3. booleans",
   choiceFour: "4. all of the above",
+  correct: "4. all of the above",
 };
 
 var questionFour = {
@@ -47,7 +56,12 @@ var questionFour = {
   choiceTwo: "2. curly braces",
   choiceThree: "3. quotes",
   choiceFour: "4. parentheses",
+  correct: "3. quotes",
 };
+
+//question counter
+
+var questionCounter = 0;
 
 //created strings from the question objects
 //remember that .parse is the opposite of .stringify !!
@@ -63,27 +77,40 @@ var qArrayString = [q1String, q2String, q3String, q4String];
 //modify innterHTML after a loop using one of these?
 
 //add eventListeners
-choiceOneBtn.addEventListener("click", function () {});
-choiceTwoBtn.addEventListener("click", function () {});
-choiceThreeBtn.addEventListener("click", function () {});
-choiceFourBtn.addEventListener("click", function () {});
+startButton.addEventListener("click", function (event) {
+  startContainer.classList.add("hidden");
+  questionContainer.classList.remove("hidden");
+  setTime();
+  nextQuestion();
+});
+
+//compare to correct answer, and update counter//START HERE
+choice.forEach((element) => {
+  element.addEventListener("click", function (event) {
+    var userChoice = event.target.textContent;
+    console.log(userChoice);
+    console.log(event.target);
+  });
+});
 
 //FIRST, need start page div underneath (Z index)?
 
 //create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
 //How to make elements of an object appear in the HTML?
-for (let i = 0; i < questionArray.length; i++) {
-  console.log(questionArray[i]);
-  //question.appendChild.(questionOne.questionText)//trying to append an object property to a place in the HTML
-  //should I use this? document.getElementById(id).innerHTML = new HTML
-}
+// // for (let i = 0; i < questionArray.length; i++) {
+// //   console.log(questionArray[i]);
+//   //question.appendChild.(questionOne.questionText)//trying to append an object property to a place in the HTML
+//   //should I use this? document.getElementById(id).innerHTML = new HTML
+// }
 //this is how I'm trying to call the questionText property of the questionOne object into the h1 of #question
 //but I want this to be an array! Or to be able to cycle through this
-question.innerHTML = questionOne.questionText;
-choiceOneBtn.innerHTML = questionOne.choiceOne;
-choiceTwoBtn.innerHTML = questionOne.choiceTwo;
-choiceThreeBtn.innerHTML = questionOne.choiceThree;
-choiceFourBtn.innerHTML = questionOne.choiceFour;
+function nextQuestion() {
+  question.textContent = questionArray[questionCounter].questionText;
+  choiceOneBtn.textContent = questionArray[questionCounter].choiceOne;
+  choiceTwoBtn.textContent = questionArray[questionCounter].choiceTwo;
+  choiceThreeBtn.textContent = questionArray[questionCounter].choiceThree;
+  choiceFourBtn.textContent = questionArray[questionCounter].choiceFour;
+}
 
 //commit to local storage the score on the High Scores page
 //differentiate between right and wrong answer -- can make the same button the right answer every time?
@@ -116,5 +143,3 @@ function setTime() {
 //     mainEl.appendChild(imgEl);
 
 //   }
-
-setTime();

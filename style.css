@@ -7,3 +7,7 @@ body {
   background-color: #213b73;
   border-color: #f2f4f7;
 }
+
+.hidden {
+  display: none;
+}
