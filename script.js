@@ -88,16 +88,16 @@ choice.forEach((element) => {
     var userChoice = event.target.textContent;
     console.log(userChoice);
     console.log(event.target);
-    //if user choice matches the correct answer
-    // if ((_.isEqual(userChoice, target.correct)) {
+    if (userChoice === questionArray[questionCounter].correct) {
+      console.log("correct"); //this needs to be appended and appear below the question!
+    } else {
+      console.log("incorrect"); //this needs to be appended and appear below the question!
+    }
+    questionCounter += 1;
 
-    // // function isAnswerCorrect () {
-    //   //userChoice === target.correc
-    //   //OR
-    //   //JSON.stringify(userChoice) === JSON.stringify(correct);
-    //   nextQuestion()
-    // //need the else statement-- alerts both "wrong" and "right"}
-    // }
+    //need the if questionArray.length === questionCounter, then unhide the endContainer then else nextQuestion()
+
+    nextQuestion();
   });
 });
 
