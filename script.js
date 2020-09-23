@@ -8,6 +8,7 @@ var choiceOneBtn = document.querySelector("#choiceOne");
 var choiceTwoBtn = document.querySelector("#choiceTwo");
 var choiceThreeBtn = document.querySelector("#choiceThree");
 var choiceFourBtn = document.querySelector("#choiceFour");
+var corIncID = document.querySelector("#corIncID");
 
 var startButton = document.querySelector("#start");
 var startContainer = document.querySelector("#startContainer");
@@ -72,7 +73,6 @@ var q4String = JSON.stringify(questionFour);
 //questions as an array of strings
 var questionArray = [questionOne, questionTwo, questionThree, questionFour];
 var qArrayString = [q1String, q2String, q3String, q4String];
-//modify innterHTML after a loop using one of these?
 
 //add eventListeners
 startButton.addEventListener("click", function (event) {
@@ -82,36 +82,34 @@ startButton.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-//compare to correct answer, and update counter//START HERE
+//YES THIS IS DONE! YOU DID IT!
 choice.forEach((element) => {
   element.addEventListener("click", function (event) {
     var userChoice = event.target.textContent;
     console.log(userChoice);
     console.log(event.target);
+    corIncID.textContent = "";
     if (userChoice === questionArray[questionCounter].correct) {
-      console.log("correct"); //this needs to be appended and appear below the question!
+      console.log("correct");
+      corIncID.textContent = "Correct! You're a star. :D";
     } else {
-      console.log("incorrect"); //this needs to be appended and appear below the question!
+      console.log("incorrect");
+      corIncID.textContent = "Incorrect! Yr still cute tho. ;)";
+      secondsLeft - 15; //except for here-- fix the time
     }
     questionCounter += 1;
 
-    //need the if questionArray.length === questionCounter, then unhide the endContainer then else nextQuestion()
-
+    if (questionArray.length === questionCounter || secondsLeft === 0) {
+      questionContainer.classList.add("hidden");
+      endContainer.classList.remove("hidden");
+      //need to work on local storage
+    } else {
+      nextQuestion();
+    }
     nextQuestion();
+    //need the if questionArray.length === questionCounter, then unhide the endContainer then else nextQuestion()
   });
 });
-
-//AskBCS suggested this: since "using data attr is more reliable than using target, which just reads the text content from the HTML page itself"
-// choice.forEach((element) => {
-//   element.addEventListener("click", function (event) {
-//     var userChoice = this.dataset.choice
-//     console.log(userChoice);
-//     console.log(event.target);
-//     //if user choice matches the correct answer
-//     if (userChoice === correct) {
-//     }
-//   });
-//  });
 
 //create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
 //How to make elements of an object appear in the HTML?

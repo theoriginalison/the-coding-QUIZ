@@ -15,3 +15,8 @@ body {
 .container {
   margin-top: 50px;
 }
+
+.corIncText {
+  font-color: grey;
+  font-style: italic;
+}
