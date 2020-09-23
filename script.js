@@ -15,9 +15,14 @@ var startContainer = document.querySelector("#startContainer");
 var questionContainer = document.querySelector("#questionContainer");
 var endContainer = document.querySelector("#endContainer");
 
+var finalScore = document.querySelector("#finalScore"); //this needs to be the same value captured at the end
+var enterScoresBtn = document.querySelector("#enterScoresBtn");
+
 //variables for the timer
 var timer = document.querySelector("#timer");
 var secondsLeft = 60;
+
+var score = 0;
 
 //create objects with questions and answers
 var questionOne = {
@@ -82,6 +87,11 @@ startButton.addEventListener("click", function (event) {
   nextQuestion();
 });
 
+//TRYING TO CAPTURE LOCAL STORAGE AND MAKE SURE THERE HAS TO BE SOMETHING IN THE BOX TO BE CLICKED
+// enterScoresBtn.addEventListener("click", function (event) {
+//   if input === "" //if there are no letters input...?
+// })
+
 //YES THIS IS DONE! YOU DID IT!
 choice.forEach((element) => {
   element.addEventListener("click", function (event) {
@@ -95,13 +105,14 @@ choice.forEach((element) => {
     } else {
       console.log("incorrect");
       corIncID.textContent = "Incorrect! Yr still cute tho. ;)";
-      secondsLeft - 15; //except for here-- fix the time
+      secondsLeft -= 15;
     }
     questionCounter += 1;
 
-    if (questionArray.length === questionCounter || secondsLeft === 0) {
+    if (questionArray.length === questionCounter) {
       questionContainer.classList.add("hidden");
       endContainer.classList.remove("hidden");
+      score = secondsLeft; //flag-- is game over? flip to true, and in setInterval, read if "is game over === true then also stop the game and clear interval"
       //need to work on local storage
     } else {
       nextQuestion();
@@ -138,15 +149,18 @@ function setTime() {
     timer.textContent = "You have " + secondsLeft + " seconds remaining.";
 
     //need to be both zero seconds OR last question answered
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
+    if (secondsLeft <= 0 || questionCounter === 4) {
+      clearInterval(timerInterval); // stops callback function from firing every second
       console.log("You did the timer!");
+      console.log(score);
       //sendMessage(); // instead of sendMessage, need to go to the score page!!
     }
 
     //need to also have an if statement referring to if the last question is answered
   }, 1000);
 }
+
+//need the onClick event to store initials and score to local storage.
 
 //commented out bc this is where the "colorsplosion" happens, and you'll replace this with the "All done" message and the score, w a place to enter initials (then initials have to go to local storage)
 // function sendMessage() {
