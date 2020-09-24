@@ -2,6 +2,20 @@
 
 Homework for Week 4
 
+[LINK TO PAGE](https://theoriginalison.github.io/the-coding-QUIZ/)
+
+index.html
+![Screenshot of Start Page](/ReadMeImages.startquiz.png)
+
+![Screenshot of Question](/ReadMeImages.question.png)
+
+![Screenshot of Finished, Enter Scores Page](/ReadMeImages.finishedquiz.png)
+
+highscores.html
+![Screenshot of High Scores Page](/ReadMeImages.highscores.png)
+
+## Approach & Process
+
 - Used the Bootstrap template
 - Used a Navbar with a link, and added a placeholder for where the timer will go (even if that's replaced using JS)
 - Found buttons that worked the way when they were clicked & hovered over
@@ -27,7 +41,7 @@ Homework for Week 4
 - Created the JS file just for the high scores tab, then rendered the score
 - Added button & event listener that the scores would be cleared on the "Clear Scores" button click
 
-Learning:
+## Discoveries
 
 - Use console.log after each function or for loop as the end of it, to show that it ran without breaking
 - There's a difference between .value, textInput, and innerHTML
@@ -37,7 +51,7 @@ Learning:
 - Copy and paste IDs & Classes from the HTML rather than type them out for querySelector-- you have to be precise! And in the same vein, be careful when C&P multiple elements, containers, etc-- check the classes & IDs to make sure those didn't inadvertantly follow. And be careful of using plural vs. singular names for things (that one "s" can mess everything up)
 - Exclamation points are special and touchy. I use them frequently, but I should save those for emails, DMs, and texts instead of code
 
-I'd like to add:
+## Further features for next time
 
 - A "next question" button so the user can see what's correct and incorrect
 - Storage of multiple scores
