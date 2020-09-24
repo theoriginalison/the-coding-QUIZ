@@ -1,7 +1,4 @@
-console.log("I'm working!"); //delete this when you're done!
-console.log('YOU"RE DOING AMAZING, SWEETIE! ;D');
-
-//create variables
+//global variables
 var question = document.querySelector("#question");
 var choice = document.querySelectorAll(".choices");
 var choiceOneBtn = document.querySelector("#choiceOne");
@@ -21,10 +18,9 @@ var enterScoresBtn = document.querySelector("#enterScoreBtn");
 //variables for the timer
 var timer = document.querySelector("#timer");
 var secondsLeft = 60;
-
 var score = 0;
 
-//create objects with questions and answers
+//objects with questions and answers
 var questionOne = {
   questionText: "Commonly used data types DO NOT include:",
   choiceOne: "1. strings",
@@ -67,17 +63,8 @@ var questionFour = {
 
 var questionCounter = 0;
 
-//created strings from the question objects
-//remember that .parse is the opposite of .stringify !!
-var q1String = JSON.stringify(questionOne);
-var q2String = JSON.stringify(questionTwo);
-var q3String = JSON.stringify(questionThree);
-var q4String = JSON.stringify(questionFour);
-
 //questions as an array of objects
-//questions as an array of strings
 var questionArray = [questionOne, questionTwo, questionThree, questionFour];
-var qArrayString = [q1String, q2String, q3String, q4String];
 
 //add eventListeners
 startButton.addEventListener("click", function (event) {
@@ -87,18 +74,14 @@ startButton.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-//YES THIS IS DONE! YOU DID IT!
+//question iteration
 choice.forEach((element) => {
   element.addEventListener("click", function (event) {
     var userChoice = event.target.textContent;
-    console.log(userChoice);
-    console.log(event.target);
     corIncID.textContent = "";
     if (userChoice === questionArray[questionCounter].correct) {
-      console.log("correct");
       corIncID.textContent = "Correct! You're a star. :D";
     } else {
-      console.log("incorrect");
       corIncID.textContent = "Incorrect! Yr still cute tho. ;)";
       secondsLeft -= 15;
     }
@@ -107,23 +90,14 @@ choice.forEach((element) => {
     if (questionArray.length === questionCounter) {
       questionContainer.classList.add("hidden");
       endContainer.classList.remove("hidden");
-      score = secondsLeft; //flag-- is game over? flip to true, and in setInterval, read if "is game over === true then also stop the game and clear interval"
-      //need to work on local storage
+      score = secondsLeft;
     } else {
       nextQuestion();
     }
     nextQuestion();
-    //need the if questionArray.length === questionCounter, then unhide the endContainer then else nextQuestion()
   });
 });
 
-//create the iteration through the questions...even though rn it's only console logging number 1, 2, 3, 4 (the length of the array)
-//How to make elements of an object appear in the HTML?
-//for (let i = 0; i < questionArray.length; i++) {
-//   console.log(questionArray[i]);
-// }
-//this is how I'm trying to call the questionText property of the questionOne object into the h1 of #question
-//but I want this to be an array! Or to be able to cycle through this
 function nextQuestion() {
   question.textContent = questionArray[questionCounter].questionText;
   choiceOneBtn.textContent = questionArray[questionCounter].choiceOne;
@@ -133,7 +107,6 @@ function nextQuestion() {
 }
 
 //for the timer:
-
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -151,12 +124,10 @@ function setTime() {
 }
 
 //committing initials & scores to local storage
-
 enterScoresBtn.addEventListener("click", function (event) {
   var userInitials = document.querySelector("#userInitials").value;
 
   var userScore = finalScore.textContent.split(" ")[4].replace(/!+$/, "");
-  console.log(userScore);
   localStorage.setItem("user initials", userInitials);
   localStorage.setItem("final score", userScore);
   renderScore();
@@ -165,6 +136,4 @@ enterScoresBtn.addEventListener("click", function (event) {
 function renderScore() {
   var userInitialsStored = localStorage.getItem("user initials");
   var userScoreStored = localStorage.getItem("final score");
-
-  //need to put this in the list using placeWhereItGoes.textContent = userInitials; placeWhereItGoes.textContent = userInitials
 }
