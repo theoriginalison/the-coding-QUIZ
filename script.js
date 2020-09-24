@@ -87,11 +87,6 @@ startButton.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-//TRYING TO CAPTURE LOCAL STORAGE AND MAKE SURE THERE HAS TO BE SOMETHING IN THE BOX TO BE CLICKED
-// enterScoresBtn.addEventListener("click", function (event) {
-//   if input === "" //if there are no letters input...?
-// })
-
 //YES THIS IS DONE! YOU DID IT!
 choice.forEach((element) => {
   element.addEventListener("click", function (event) {
