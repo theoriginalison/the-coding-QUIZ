@@ -16,7 +16,7 @@ var questionContainer = document.querySelector("#questionContainer");
 var endContainer = document.querySelector("#endContainer");
 
 var finalScore = document.querySelector("#finalScore");
-var enterScoresBtn = document.querySelector("#enterScoresBtn");
+var enterScoresBtn = document.querySelector("#enterScoreBtn");
 
 //variables for the timer
 var timer = document.querySelector("#timer");
@@ -137,9 +137,6 @@ function nextQuestion() {
   choiceFourBtn.textContent = questionArray[questionCounter].choiceFour;
 }
 
-//commit to local storage the score on the High Scores page
-//need welcome screen to come up first, before anything else
-
 //for the timer:
 
 function setTime() {
@@ -147,7 +144,6 @@ function setTime() {
     secondsLeft--;
     timer.textContent = "You have " + secondsLeft + " seconds remaining.";
 
-    //need to be both zero seconds OR last question answered
     if (secondsLeft <= 0 || questionCounter === 4) {
       clearInterval(timerInterval);
       if (score < 0) {
@@ -159,12 +155,13 @@ function setTime() {
   }, 1000);
 }
 
-//need the onClick event to store initials and score to local storage.
+//committing initials & scores to local storage
 
 enterScoresBtn.addEventListener("click", function (event) {
   var userInitials = document.querySelector("#userInitials").value;
-  var userScore = finalScore.value;
 
+  var userScore = finalScore.textContent.split(" ")[4].replace(/!+$/, "");
+  console.log(userScore);
   localStorage.setItem("user initials", userInitials);
   localStorage.setItem("final score", userScore);
   renderScore();
