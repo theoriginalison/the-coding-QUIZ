@@ -1,0 +1,3 @@
+renderHighScores();
+
+function renderHighScores() {}

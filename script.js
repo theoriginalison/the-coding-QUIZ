@@ -15,7 +15,7 @@ var startContainer = document.querySelector("#startContainer");
 var questionContainer = document.querySelector("#questionContainer");
 var endContainer = document.querySelector("#endContainer");
 
-var finalScore = document.querySelector("#finalScore"); //this needs to be the same value captured at the end
+var finalScore = document.querySelector("#finalScore");
 var enterScoresBtn = document.querySelector("#enterScoresBtn");
 
 //variables for the timer
@@ -156,20 +156,23 @@ function setTime() {
       }
       finalScore.textContent = "Your final score is " + score + "!";
     }
-
-    //need to also have an if statement referring to if the last question is answered
   }, 1000);
 }
 
 //need the onClick event to store initials and score to local storage.
 
-//commented out bc this is where the "colorsplosion" happens, and you'll replace this with the "All done" message and the score, w a place to enter initials (then initials have to go to local storage)
-// function sendMessage() {
-//     timeEl.textContent = " ";
+enterScoresBtn.addEventListener("click", function (event) {
+  var userInitials = document.querySelector("#userInitials").value;
+  var userScore = finalScore.value;
 
-//     var imgEl = document.createElement("img");
+  localStorage.setItem("user initials", userInitials);
+  localStorage.setItem("final score", userScore);
+  renderScore();
+});
 
-//     imgEl.setAttribute("src", "images/image_1.jpg");
-//     mainEl.appendChild(imgEl);
+function renderScore() {
+  var userInitialsStored = localStorage.getItem("user initials");
+  var userScoreStored = localStorage.getItem("final score");
 
-//   }
+  //need to put this in the list using placeWhereItGoes.textContent = userInitials; placeWhereItGoes.textContent = userInitials
+}
