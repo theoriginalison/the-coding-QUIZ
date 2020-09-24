@@ -138,7 +138,6 @@ function nextQuestion() {
 }
 
 //commit to local storage the score on the High Scores page
-//differentiate between right and wrong answer -- can make the same button the right answer every time?
 //need welcome screen to come up first, before anything else
 
 //for the timer:
@@ -150,10 +149,12 @@ function setTime() {
 
     //need to be both zero seconds OR last question answered
     if (secondsLeft <= 0 || questionCounter === 4) {
-      clearInterval(timerInterval); // stops callback function from firing every second
-      console.log("You did the timer!");
-      console.log(score);
-      //sendMessage(); // instead of sendMessage, need to go to the score page!!
+      clearInterval(timerInterval);
+      if (score < 0) {
+        score = 0;
+        timer.textContent = 0;
+      }
+      finalScore.textContent = "Your final score is " + score + "!";
     }
 
     //need to also have an if statement referring to if the last question is answered
