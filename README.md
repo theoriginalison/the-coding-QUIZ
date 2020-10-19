@@ -5,14 +5,14 @@ Homework for Week 4
 [LINK TO PAGE](https://theoriginalison.github.io/the-coding-QUIZ/)
 
 index.html
-![Screenshot of Start Page](/ReadMeImages.startquiz.png)
+![Screenshot of Start Page](./ReadMeImages.startquiz.png)
 
-![Screenshot of Question](/ReadMeImages.question.png)
+![Screenshot of Question](./ReadMeImages.question.png)
 
-![Screenshot of Finished, Enter Scores Page](/ReadMeImages.finishedquiz.png)
+![Screenshot of Finished, Enter Scores Page](./ReadMeImages.finishedquiz.png)
 
 highscores.html
-![Screenshot of High Scores Page](/ReadMeImages.highscores.png)
+![Screenshot of High Scores Page](./ReadMeImages.highscores.png)
 
 ## Approach & Process
 
