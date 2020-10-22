@@ -12,14 +12,14 @@ JavaScript
 A responsive profile page that includes links to projects, contact information, a contact form, and resume.
 
 ## Screenshots
-![Screenshot of Start Page](./ReadMeImages.startquiz.png)
+![Screenshot of Start Page](./ReadMeImages/startquiz.png)
 
-![Screenshot of Question](./ReadMeImages.question.png)
+![Screenshot of Question](./ReadMeImages/question.png)
 
-![Screenshot of Finished, Enter Scores Page](./ReadMeImages.finishedquiz.png)
+![Screenshot of Finished, Enter Scores Page](./ReadMeImages/finishedquiz.png)
 
 highscores.html
-![Screenshot of High Scores Page](./ReadMeImages.highscores.png)
+![Screenshot of High Scores Page](./ReadMeImages/highscores.png)
 
 ## Features for Further Development
 
